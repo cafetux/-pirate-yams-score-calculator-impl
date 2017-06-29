@@ -8,7 +8,6 @@ import fr.cafetux.score.dice.DiceFaces;
 import java.util.List;
 
 /**
- * Created by fmaury on 15/06/17.
  */
 public class Score {
 
@@ -20,7 +19,7 @@ public class Score {
             return 0;
         }
         List<DiceFace> dicesFace = parser.from(input);
-        List<CombinationScore> results = combinations.find(dicesFace);
+        List<CombinationScore> results = combinations.find(new fr.cafetux.score.combination.rule.DiceFaces(dicesFace));
         return results.stream().mapToInt(CombinationScore::getScore).max().orElse(0);
     }
 

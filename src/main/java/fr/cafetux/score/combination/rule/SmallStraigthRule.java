@@ -20,17 +20,11 @@ public class SmallStraigthRule implements DiceRule{
 
 
     @Override
-    public List<CombinationScore> apply(List<DiceFace> dices){
-        if(diceUniqueValues(dices).containsAll(Arrays.asList(1, 2, 3, 4, 5))){
+    public List<CombinationScore> apply(DiceFaces dices){
+        if(dices.distinct().toList().stream().map(DiceFace::getValue).collect(Collectors.toList()).containsAll(Arrays.asList(1, 2, 3, 4, 5))){
             return RESULT;
         }
         return EMPTY_LIST;
-    }
-
-    private Set<Integer> diceUniqueValues(List<DiceFace> dices) {
-        return dices.stream()
-                .map(DiceFace::getValue)
-                .collect(Collectors.toSet());
     }
 
 }

@@ -19,7 +19,7 @@ public class AbstractDiceRuleTest {
     DiceRule rule;
 
     void when_we_apply_them_on(List<DiceFace> roll) {
-        result = rule.apply(roll);
+        result = rule.apply(new DiceFaces(roll));
     }
 
     List<DiceFace> roll(Integer... diceValues) {

@@ -1,5 +1,6 @@
 package fr.cafetux.score.combination;
 
+import fr.cafetux.score.combination.rule.DiceFaces;
 import fr.cafetux.score.combination.rule.LargeStraigthRule;
 import fr.cafetux.score.combination.rule.OccurencesDiceRule;
 import fr.cafetux.score.combination.rule.SmallStraigthRule;
@@ -68,7 +69,7 @@ public class CombinationsTest {
     }
 
     private void when_we_check_combination() {
-        actualCombinations=combinations.find(dices);
+        actualCombinations=combinations.find(new DiceFaces(dices));
     }
 
     private void then_no_combination_found() {

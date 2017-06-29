@@ -1,14 +1,16 @@
 package fr.cafetux.score.combination;
 
+import fr.cafetux.score.combination.rule.DiceFaces;
 import fr.cafetux.score.combination.rule.DiceRule;
-import fr.cafetux.score.dice.DiceFace;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static java.util.Optional.ofNullable;
 
 /**
- * Created by fmaury on 15/06/17.
  */
 public class Combinations {
 
@@ -19,7 +21,7 @@ public class Combinations {
                 .orElse(new ArrayList<>());
     }
 
-    public List<CombinationScore> find(List<DiceFace> dices){
+    public List<CombinationScore> find(DiceFaces dices){
         Set<CombinationScore> combinationScores = new HashSet<>();
 
         rules.stream()
