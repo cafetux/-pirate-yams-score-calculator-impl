@@ -4,5 +4,6 @@ public enum YamsRule {
         OCCURENCES,
         SMALL_STRAIGTH,
         LARGE_STRAIGTH,
-        SQUARE;
+        SQUARE,
+        FULL_HOUSE;
 }
