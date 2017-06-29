@@ -12,6 +12,10 @@ import static fr.cafetux.score.dice.PirateDiceFace.*;
 public class PirateDicesRuleTest extends AbstractDiceRuleTest {
 
 
+    public static final NumericDiceFace FIVE = new NumericDiceFace(5);
+    public static final NumericDiceFace TWO = new NumericDiceFace(2);
+    public static final NumericDiceFace FOUR = new NumericDiceFace(4);
+
     @Test
     public void should_be_basis_on_the_identity_and_not_into_the_value(){
         given_an_occurence_rule();
@@ -54,7 +58,14 @@ public class PirateDicesRuleTest extends AbstractDiceRuleTest {
         when_we_apply_them_on(roll(SWORDS, SWORDS, SWORDS, DIAMOND, GOLD,MONKEY,SWORDS));
         then_we_have(score_result(SQUARE, 50));
     }
-    
+
+    @Test
+    public void should_MONKEY_and_PARROT_was_same_diceFace(){
+        given_an_square_rule();
+        when_we_apply_them_on(roll(SWORDS, PARROT, PARROT, DIAMOND, GOLD,MONKEY,MONKEY));
+        then_we_have(score_result(SQUARE, 50));
+    }
+
     @Test
     public void should_DEAD_is_a_dead_dice_face(){
         given_an_occurence_rule();
@@ -65,7 +76,7 @@ public class PirateDicesRuleTest extends AbstractDiceRuleTest {
     @Test
     public void should_mix_symbol_and_numerics_values(){
         given_an_occurence_rule();
-        when_we_apply_them_on(roll(new NumericDiceFace(5), new NumericDiceFace(2), DIAMOND, DIAMOND, new NumericDiceFace(4),MONKEY));
+        when_we_apply_them_on(roll(FIVE, TWO, DIAMOND, DIAMOND, FOUR,MONKEY));
         then_we_have(score_result(OCCURENCES, 15));
     }
 

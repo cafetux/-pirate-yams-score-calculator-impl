@@ -7,4 +7,5 @@ public interface DiceFace {
 
     boolean hasSameIDentity(DiceFace dice);
     int getValue();
+    String getName();
 }

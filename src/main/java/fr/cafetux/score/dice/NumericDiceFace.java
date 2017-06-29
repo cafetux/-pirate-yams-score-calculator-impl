@@ -37,4 +37,9 @@ public class NumericDiceFace implements DiceFace{
     public int getValue() {
         return value;
     }
+
+    @Override
+    public String getName() {
+        return String.valueOf(value);
+    }
 }

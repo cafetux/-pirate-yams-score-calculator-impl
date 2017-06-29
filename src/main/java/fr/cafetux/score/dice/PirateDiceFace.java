@@ -28,7 +28,14 @@ public class PirateDiceFace implements DiceFace{
         if(name.equals("DEAD_FACE")){
             return false;
         }
+        if(isAnimal(name) && isAnimal(dice.getName())){
+            return true;
+        }
         return dice.equals(this);
+    }
+
+    private boolean isAnimal(String name) {
+        return MONKEY.getName().equals(name) || PARROT.getName().equals(name);
     }
 
     @Override
@@ -47,5 +54,10 @@ public class PirateDiceFace implements DiceFace{
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
