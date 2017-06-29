@@ -28,6 +28,11 @@ public class AbstractDiceRuleTest {
                 .collect(toList());
     }
 
+    List<DiceFace> roll(DiceFace... diceValues) {
+        return stream(diceValues)
+                .collect(toList());
+    }
+
     NumericDiceFace dice(int value) {
         return new NumericDiceFace(value);
     }
