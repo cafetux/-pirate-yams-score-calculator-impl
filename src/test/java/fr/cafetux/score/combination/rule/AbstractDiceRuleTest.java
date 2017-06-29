@@ -42,6 +42,11 @@ public class AbstractDiceRuleTest {
         assertThat(result).contains(expectedValue);
     }
 
+    void then_we_have_result_count_of(int expectedResultSize) {
+        assertThat(result).isNotEmpty();
+        assertThat(result).hasSize(expectedResultSize);
+    }
+
     CombinationScore score_result(YamsRule type, int score) {
         return new CombinationScore(type, score);
     }
